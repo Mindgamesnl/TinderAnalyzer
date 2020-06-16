@@ -1,6 +1,12 @@
-package TinderAnalyzer
+package main
 
-import "time"
+import (
+	"encoding/json"
+	"github.com/sirupsen/logrus"
+	"io/ioutil"
+	"os"
+	"time"
+)
 
 type AccountData struct {
 	Photos               []string `json:"Photos"`
@@ -181,4 +187,18 @@ func (account AccountData) GetDays() []Day {
 		output = append(output, day)
 	}
 	return output
+}
+
+func LoadAccountData(filename string) AccountData {
+	jsonFile, err := os.Open("data.json")
+	if err != nil {
+		logrus.Error(err)
+		os.Exit(1)
+	}
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	var accountData AccountData
+	json.Unmarshal(byteValue, &accountData)
+	return accountData
 }
