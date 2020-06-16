@@ -143,8 +143,8 @@ type AccountData struct {
 		// the following fields are statistics linked to dates
 		// format: YYYY-MM-DD
 		AppOpens map[string]int `json:"app_opens"`
-		SwipesLikes map[string]int `json:"swipe_likes"`
-		SwipesPasses map[string]int `json:"swipe_passes"`
+		SwipesLikes map[string]int `json:"swipes_likes"`
+		SwipesPasses map[string]int `json:"swipes_passes"`
 		Matches map[string]int `json:"matches"`
 		MessagesSent map[string]int `json:"messages_sent"`
 		MessagesReceived map[string]int `json:"messages_received"`
