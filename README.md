@@ -6,3 +6,6 @@ Tinder allows you to download all of your profile data (like any other modern pl
 Might add some other fun stats later or try to evaluate your profile pictures or whatever
 
 Honestly I just wanted to write some dumb logic in GO and this was the only big json file I had in my downloads folder
+
+# Why
+Yes
