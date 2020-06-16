@@ -1,19 +1,12 @@
-package TinderAnalyzer
+package main
 
 import (
-	"io/ioutil"
-	"os"
+	"github.com/Mindgamesnl/TinderAnalyzer/models"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
-	jsonFile, err := os.Open("data.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println("Successfully Opened users.json")
-	// defer the closing of our jsonFile so that we can parse it later on
-	defer jsonFile.Close()
+	account := models.LoadAccountData("data.json")
 
-	byteValue, _ := ioutil.ReadAll("./data.json")
-	
+	logrus.Info("Loaded profile " + account.User.Name)
 }
