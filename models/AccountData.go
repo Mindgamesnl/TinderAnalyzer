@@ -9,6 +9,24 @@ import (
 )
 
 type AccountData struct {
+	Purchases struct {
+		Subscription []struct {
+			Status      string    `json:"status"`
+			Terms       int       `json:"terms"`
+			ProductType string    `json:"product_type"`
+			CreateDate  time.Time `json:"create_date"`
+			ExpireDate  time.Time `json:"expire_date"`
+			Platform    string    `json:"platform"`
+			Pos         struct {
+				Lat float64 `json:"lat"`
+				Lon float64 `json:"lon"`
+			} `json:"pos"`
+		} `json:"subscription"`
+		Consumable        []interface{} `json:"consumable"`
+		BoostTracking     []interface{} `json:"boost_tracking"`
+		SuperLikeTracking []interface{} `json:"super_like_tracking"`
+	} `json:"Purchases"`
+
 	Photos               []string `json:"Photos"`
 
 	User struct {
